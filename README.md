@@ -1,23 +1,108 @@
-# Snake Game Design Guide
+# Snake Game
 
-Version 1.0
+**Version 1.0** · A beginner-friendly Pygame project and visual design roadmap
 
-This is a design document to help you evolve the game visually and feel-wise without changing the core idea of the game. The goal is to make the snake look more alive, move more smoothly, and feel more polished.
+This repository contains a simple Snake game written in Python with Pygame. It is intentionally small so you can understand the code, experiment with the graphics, and improve the game step by step.
 
-This document also acts as a guide for understanding the codebase and planning visual upgrades in a structured way.
+The rest of this README is both a project guide and a design roadmap. It explains the current codebase, suggests visual improvements, and provides learning material for each stage.
+
+## Quick start
+
+### Requirements
+
+- Python 3.10 or newer
+- Pygame 2.6.1
+
+### Install and run
+
+```bash
+git clone https://github.com/MarkLemute/snake-game.git
+cd snake-game
+python -m venv .venv
+```
+
+Activate the virtual environment:
+
+**Windows PowerShell**
+
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**macOS/Linux**
+
+```bash
+source .venv/bin/activate
+```
+
+Install the dependency and start the game:
+
+```bash
+python -m pip install -r requirements.txt
+python snake_game.py
+```
+
+### Controls
+
+- Arrow keys: change direction
+- Space: restart after game over
+- Close the game window: quit
+
+## Project structure
+
+| File | Purpose |
+| --- | --- |
+| `snake_game.py` | Game window, input handling, game rules, drawing, and main loop |
+| `requirements.txt` | Pinned Python dependency |
+| `README.md` | Setup instructions, learning path, and design roadmap |
+
+### How the code works
+
+1. `pygame.init()` starts Pygame.
+2. `SnakeGame.__init__()` creates the window, clock, font, and initial state.
+3. `reset_game()` creates the snake, direction, food, score, and game-over state.
+4. `handle_events()` reads keyboard and window events.
+5. `update()` moves the snake, checks food, and detects collisions.
+6. `draw()` renders the snake, food, score, and game-over message.
+7. `run()` repeats the event, update, draw, and clock steps.
+
+When you begin redesigning the graphics, keep the game rules in `update()` and make most visual changes inside `draw()`. This separation makes experimentation safer.
 
 ---
 
-## Recommended learning resources
+## Learning materials
 
-If you want to learn more about the design and the code, these are the best starting points:
+Use these in order. Start with the official documentation, then use the design references when you are ready to change the look and feel.
 
-- Pygame documentation: official reference for drawing, events, sprites, clock, and window management
-- Python documentation: helps you understand the logic and data structures used in the game
-- Game design books and articles: useful for understanding feel, readability, balance, and player feedback
-- Pixel art and UI design references: useful for snake styling, food art, and background composition
+### Python foundations
 
-Important note: many of these are available as web pages, PDFs, or downloadable guides. If you want a PDF version of this project guide, you can export the markdown file to a PDF using VS Code, Word, or a PDF converter.
+- [Python official tutorial](https://docs.python.org/3/tutorial/) — variables, functions, classes, loops, and modules
+- [Python standard library: `collections.deque`](https://docs.python.org/3/library/collections.html#collections.deque) — the data structure used for the snake body
+- [Python `Enum` documentation](https://docs.python.org/3/library/enum.html) — how the direction values work
+
+### Pygame and game programming
+
+- [Pygame official documentation](https://www.pygame.org/docs/) — the complete API reference
+- [Pygame getting started](https://www.pygame.org/wiki/GettingStarted) — installation and first-project guidance
+- [Pygame examples](https://github.com/pygame/pygame/tree/main/examples) — small examples for drawing, input, fonts, and animation
+- [Real Python: Pygame tutorials](https://realpython.com/tutorials/pygame/) — beginner-friendly explanations and projects
+
+### Graphics and visual design
+
+- [Pygame drawing reference](https://www.pygame.org/docs/ref/draw.html) — rectangles, circles, lines, and rounded shapes
+- [Pygame Surface reference](https://www.pygame.org/docs/ref/surface.html) — surfaces, transparency, and compositing
+- [Lospec Pixel Art tutorials](https://lospec.com/pixel-art-tutorials) — palettes, pixel-art shapes, and shading
+- [OpenGameArt](https://opengameart.org/) — reusable art references and assets; check each asset's license before using it
+- [Kenney assets](https://kenney.nl/assets) — free game assets with clear licensing information
+
+### Game feel and design
+
+- [The 12 principles of animation](https://www.youtube.com/watch?v=uDqjIdI4bF4) — timing, anticipation, squash, stretch, and follow-through
+- [Game accessibility guidelines](https://gameaccessibilityguidelines.com/) — readable contrast, controls, and player-friendly design
+- Steve Swink, *Game Feel* — a useful book about responsiveness, motion, and feedback
+- Jesse Schell, *The Art of Game Design* — a broad introduction to designing engaging games
+
+Do not download random “free PDF” copies of books. Use official publishers, libraries, or legitimate ebook stores. Web documentation is usually more useful than a PDF because it stays updated.
 
 ---
 
@@ -271,6 +356,31 @@ Focus on:
 Do not try to add too much at once. Build the game around a clean visual identity and improve it gradually.
 
 A snake game becomes exciting when the snake feels alive, the food feels rewarding, and the screen feels polished without becoming chaotic.
+
+## Publishing this project on GitHub
+
+The intended public repository is:
+
+`https://github.com/MarkLemute/snake-game`
+
+Create that repository as **Public**, without adding a second README or `.gitignore`, then run:
+
+```bash
+git remote -v
+git push -u origin main
+```
+
+GitHub will ask you to authenticate. Use GitHub's browser sign-in, Git Credential Manager, or a fine-grained personal access token created in your own GitHub account. Never paste a password or token into chat or commit one to this project.
+
+## Version history
+
+### Version 1.0
+
+- Added the playable Pygame Snake game
+- Added dependency setup through `requirements.txt`
+- Added beginner-friendly codebase documentation
+- Added a visual design and improvement roadmap
+- Added learning resources for Python, Pygame, graphics, and game feel
 
 ---
 
